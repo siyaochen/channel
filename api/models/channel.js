@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { model } = require('../db/index.js')
 const Schema = mongoose.Schema
 
 const message = require('./models/message.js')
@@ -10,3 +11,5 @@ const Channel = new Schema(
     },
     { timestamps: true }
 )
+
+module.exports = mongoose.model('channels', Channel)
