@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
-const { model } = require('../db/index.js')
 const Schema = mongoose.Schema
 
-const message = require('./models/message.js')
+const message = require('./message')
 
 const Channel = new Schema(
     {
