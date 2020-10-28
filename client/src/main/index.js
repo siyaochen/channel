@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import { Home } from '../pages'
+
 const App = () => {
     return (
         <Router>
             <Switch>
-                <Route path="/message/create" exact component={MessagesCreate} />
-                <Route path="/message/list" exact component={MessagesList} />
+                <Route to="/" exact component={Home} />
             </Switch>
         </Router>
     )
