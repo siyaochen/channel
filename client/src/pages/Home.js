@@ -7,6 +7,7 @@ import FormControl from 'react-bootstrap/FormControl'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
+import { createMessage } from '../api'
 
 const Home = () => {
     const [message, setMessage] = useState('')
@@ -14,7 +15,16 @@ const Home = () => {
     const submitMessage = (event) => {
         event.preventDefault()
 
-        
+        const payload = {
+            user: 'test',
+            datetime: Date.now(),
+            content: message,
+        }
+        createMessage(payload)
+            .then((res) => {})
+            .catch((err) => {
+                console.log(err)
+            })
 
         setMessage('')
     }
@@ -30,10 +40,7 @@ const Home = () => {
                             onChange={(event) => setMessage(event.target.value)}
                         />
                         <InputGroup.Append>
-                            <Button
-                                variant="primary"
-                                type="submit"
-                            >
+                            <Button variant="primary" type="submit">
                                 Send
                             </Button>
                         </InputGroup.Append>
